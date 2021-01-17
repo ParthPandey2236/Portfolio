@@ -195,6 +195,14 @@ class _ProfileState extends State<Profile> {
                   Text('College Name : ${CollegeID}',style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.height/33.6)),
                   SizedBox(height: MediaQuery.of(context).size.height/22.4,),
                   Text('Year : ${Year}',style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.height/33.6)),
+                  SizedBox(height: MediaQuery.of(context).size.height/22.4,),
+                  RaisedButton(
+                      child: Icon(Icons.logout),
+                      onPressed: () async{
+                        await FirebaseAuth.instance.signOut();
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Login()));
+                      },
+                    )
                 ],
               ),
             ),
